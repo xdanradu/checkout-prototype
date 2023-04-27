@@ -1,0 +1,25 @@
+.steps {
+  display: flex;
+  justify-content: center;
+  color: #98a1a6;
+  margin: 20px;
+  :not(:last-child) {
+    margin-right: 30px;
+  }
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  width: 20px;
+  height: 20px;
+
+  border: 1px solid #98a1a6;
+}
+
+.active {
+  background-color: #005e3f;
+  color: white;
+}

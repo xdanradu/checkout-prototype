@@ -1,0 +1,9 @@
+<div class="header-wrapper">
+  <div class="back"><div (click)="back()">&#8592; Zuruck</div></div>
+  <div>
+    <div class="middle">
+      <ng-content select="[middle]"></ng-content>
+    </div>
+  </div>
+  <div (click)="close()" class="close"><div>&#10005;</div></div>
+</div>

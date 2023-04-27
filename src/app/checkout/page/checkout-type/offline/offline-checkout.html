@@ -1,0 +1,84 @@
+<checkout>
+  <checkout-header header (backEvent)="back()" (closeEvent)="close()">
+    <ng-container middle>
+      <stepper
+        [numberOfSteps]="numberOfSteps"
+        [currentStep]="currentStep"
+      ></stepper>
+    </ng-container>
+  </checkout-header>
+
+  <ng-container feature-toggle *ngIf="warningFeatureToggle"
+    ><div class="feature-toggle">
+      Warning {{user.email}}, we're in maintenance
+    </div></ng-container
+  >
+
+  <ng-container [ngSwitch]="currentStep" body>
+    <ng-container *ngSwitchCase="1">
+      <step-title>
+        <div title>Kurszeitraum</div>
+        <div description>
+          fur Deinen Kurs <strong>{{cart.entry.product.name}}</strong>
+        </div>
+      </step-title>
+      <course-schedule></course-schedule>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="2">
+      <step-title>
+        <div title>Termine</div>
+        <div description>Passen alle Termine fur Dich</div>
+      </step-title>
+      <course-appointments></course-appointments>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="3">
+      <step-title>
+        <div title>Zahlungsart</div>
+        <div description>{{cart.entry.product.name}}</div>
+      </step-title>
+      <checkout-payment></checkout-payment>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="4">
+      <step-title>
+        <div title>Prufen & Buchen</div>
+        <div description>{{cart.entry.product.name}}</div>
+      </step-title>
+      <checkout-overview></checkout-overview>
+    </ng-container>
+  </ng-container>
+
+  <ng-container [ngSwitch]="currentStep" footer>
+    <ng-container *ngSwitchCase="1">
+      <checkout-footer>
+        <button (click)="featureToggleOn()" class="next-button" button-right>
+          Weiter Zu Termin
+        </button>
+      </checkout-footer>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="2">
+      <checkout-footer>
+        <button (click)="next()" class="next-button" button-right>
+          Go the the last step
+        </button>
+      </checkout-footer>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="3">
+      <checkout-footer>
+        <button (click)="next()" class="next-button" button-right>Next</button>
+      </checkout-footer>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="4">
+      <checkout-footer>
+        <button (click)="book()" class="next-button" button-right>
+          Finish booking
+        </button>
+      </checkout-footer>
+    </ng-container>
+  </ng-container>
+</checkout>

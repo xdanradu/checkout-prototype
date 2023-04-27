@@ -1,0 +1,39 @@
+@import '../shared.scss';
+
+.checkout {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
+
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  background-color: #e8f4f2;
+  width: 100%;
+}
+
+.checkout-body {
+  margin-top: 20px;
+}
+
+.scrollable-body {
+  overflow-y: auto;
+  position: absolute;
+  top: $header-height;
+  bottom: $footer-height;
+  left: 0;
+  right: 0;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  background: white;
+}

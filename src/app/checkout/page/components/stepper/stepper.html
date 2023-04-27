@@ -1,0 +1,9 @@
+<div>
+  <div class="steps">
+    <div *ngFor="let step of [].constructor(numberOfSteps); let i = index">
+      <div class="step" [ngClass]="{'active': currentStep === i+1}">
+        {{ i+1 }}
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+@import '../shared.scss';
+
+.footer {
+  height: $footer-height;
+  box-shadow: 2px 0px 8px rgba(0, 0, 0, 0.0537041),
+    12px 0px 32px rgba(0, 0, 0, 0.1);
+
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  padding-right: 30px;
+}

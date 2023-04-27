@@ -1,0 +1,27 @@
+@import '../shared.scss';
+
+.back {
+  padding-left: 30px;
+  :hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}
+
+.close {
+  display: flex;
+  justify-content: end;
+  padding-right: 30px;
+  :hover {
+    cursor: pointer;
+  }
+}
+
+.header-wrapper {
+  height: $header-height;
+  display: flex;
+  align-items: center;
+  & > * {
+    flex: 1;
+  }
+}

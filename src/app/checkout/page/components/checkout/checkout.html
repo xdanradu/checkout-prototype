@@ -1,0 +1,18 @@
+<div class="checkout">
+  <div class="header">
+    <ng-content select="[header]"></ng-content>
+  </div>
+
+  <div class="scrollable-body">
+    <div class="feature-toggle">
+      <ng-content select="[feature-toggle]"></ng-content>
+    </div>
+    <div class="checkout-body">
+      <ng-content select="[body]"></ng-content>
+    </div>
+  </div>
+
+  <div class="footer">
+    <ng-content select="[footer]"></ng-content>
+  </div>
+</div>

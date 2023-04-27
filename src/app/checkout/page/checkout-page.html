@@ -1,0 +1,21 @@
+<ng-container *ngIf="data$ | async as data">
+  <ng-container *ngIf="!data.user.hasVouchers">
+    <no-voucher-checkout> </no-voucher-checkout>
+  </ng-container>
+
+  <ng-container *ngIf="data.cart.isOffline && data.user.hasVouchers">
+    <offline-checkout
+      [cart]="data.cart"
+      [user]="data.user"
+      [warningFeatureToggle]="data.warningFeatureToggle"
+    ></offline-checkout>
+  </ng-container>
+
+  <ng-container *ngIf="data.cart.isOnline && data.user.hasVouchers">
+    <online-checkout></online-checkout>
+  </ng-container>
+
+  <ng-container *ngIf="data.cart.isApp && data.user.hasVouchers">
+    <app-checkout> </app-checkout>
+  </ng-container>
+</ng-container>
