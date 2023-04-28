@@ -2,7 +2,7 @@
   <input
         type="radio"
         [value]="schedule.id"
-        [name]="schedule.key"
+        name="schedule-radio-button"
         (input)="onChange($event)"
         (blur)="touched()"
         [disabled]="isDisabled"

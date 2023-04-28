@@ -47,6 +47,10 @@ export class MockDataService {
       {
         id: 'date-4',
         label: '24.10.2024'
+      },
+      {
+        id: 'date-5',
+        label: '25.10.2024'
       }
     ]);
   }
