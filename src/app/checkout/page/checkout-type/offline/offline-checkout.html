@@ -22,7 +22,13 @@
           fur Deinen Kurs <strong>{{cart.entry.product.name}}</strong>
         </div>
       </step-title>
-      <course-schedule></course-schedule>
+      <div [formGroup]="courseScheduleForm">
+        <h2>ERROR HANDLING: {{schedules.errors | json}}</h2>
+        <h2>VALUE: {{schedules.value | json }}</h2>
+        <h2>VALID: {{schedules.valid | json }}</h2>
+        <course-schedule formControlName="courseSchedules" [scheduleDates]="courseSchedules"></course-schedule>
+      </div>
+
     </ng-container>
 
     <ng-container *ngSwitchCase="2">

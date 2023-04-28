@@ -1,0 +1,10 @@
+<div>
+  <input
+        type="radio"
+        [value]="schedule.id"
+        [name]="schedule.key"
+        (input)="onChange($event)"
+        (blur)="touched()"
+        [disabled]="isDisabled"
+  >{{schedule.label}}
+</div>

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import { CheckoutFooter } from '../../components/footer/footer';
 import { CheckoutHeader } from '../../components/header/header';
 import { StepTitle } from '../../components/step-title/step-title';
@@ -10,6 +10,8 @@ import { MockDataService } from '../../../mocks/mock-data';
 import { CourseAppointments } from './course-appointments/course.appointments';
 import { CheckoutPayment } from './checkout-payment/checkout-payment';
 import { CheckoutOverview } from './checkout-overview/checkout-overview';
+import {FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
+import {ScheduleDate} from "./course-schedule/schedule-date/schedule-date";
 
 @Component({
   selector: 'offline-checkout',
@@ -25,6 +27,8 @@ import { CheckoutOverview } from './checkout-overview/checkout-overview';
     CourseAppointments,
     CheckoutPayment,
     CheckoutOverview,
+    ScheduleDate,
+    ReactiveFormsModule
   ],
   templateUrl: `offline-checkout.html`,
   styleUrls: ['offline-checkout.scss'],
@@ -39,10 +43,22 @@ export class OfflineCheckout {
   @Input()
   warningFeatureToggle: any;
 
-  constructor(private mockDataService: MockDataService) {}
+  @Input()
+  courseSchedules: any;
+
+  constructor(private mockDataService: MockDataService) {
+  }
 
   numberOfSteps = 4;
   currentStep = 1;
+
+  courseScheduleForm = new FormGroup({
+    courseSchedules: new FormControl(null, Validators.required)
+  });
+
+  get schedules(): FormControl {
+    return this.courseScheduleForm.controls['courseSchedules'] as FormControl;
+  }
 
   back(): any {
     if (this.currentStep > 1) this.currentStep--;

@@ -29,4 +29,25 @@ export class MockDataService {
   enableFeatureToggle(): any {
     this.featureToggle$.next(true);
   }
+
+  getCourseSchedules(): Observable<any> {
+    return of([
+      {
+        id: 'date-1',
+        label: '11.10.2023'
+      },
+      {
+        id: 'date-2',
+        label: '22.10.2024'
+      },
+      {
+        id: 'date-3',
+        label: '23.10.2024'
+      },
+      {
+        id: 'date-4',
+        label: '24.10.2024'
+      }
+    ]);
+  }
 }

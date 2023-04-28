@@ -11,6 +11,8 @@ export class CheckoutService {
   user$ = this.mockDataService.loadUser();
   featureToggle$ = this.mockDataService.loadFeatureToggle();
 
+  courseSchedules$ = this.mockDataService.getCourseSchedules();
+
   constructor(private mockDataService: MockDataService) {}
 
   getCheckoutCart(cart: any): any {
@@ -21,11 +23,12 @@ export class CheckoutService {
   }
 
   getData(): Observable<any> {
-    return combineLatest([this.cart$, this.user$, this.featureToggle$]).pipe(
-      map(([$cart, $user, $featureToggle]) => ({
+    return combineLatest([this.cart$, this.user$, this.featureToggle$, this.courseSchedules$]).pipe(
+      map(([$cart, $user, $featureToggle, $courseSchedules]) => ({
         cart: $cart,
         user: $user,
         warningFeatureToggle: $featureToggle,
+        courseSchedules: $courseSchedules
       }))
     );
   }

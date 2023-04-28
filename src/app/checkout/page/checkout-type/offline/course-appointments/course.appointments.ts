@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
+import {FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'course-appointments',
@@ -8,4 +9,8 @@ import { Component } from '@angular/core';
   templateUrl: `course-appointments.html`,
   styleUrls: ['course-appointments.scss'],
 })
-export class CourseAppointments {}
+export class CourseAppointments {
+
+  @Input()
+  public parentForm!: FormGroup;
+}

@@ -1,4 +1,14 @@
 <div class="course-schedule counters">
+
+  <form [formGroup]="form">
+    <ng-container *ngFor="let schedule of scheduleDates">
+      <schedule-date formControlName="schedule" [schedule]="schedule"></schedule-date>
+    </ng-container>
+  </form>
+
+
+  Form: {{form.value | json}} {{form.valid | json}}
+
   <h2>Veni, vidi, vici</h2>
   I came, I saw, I conquered. Famously attributed to Julius Caesar in a message
   he supposedly sent to the Roman Senate to describe his swift, conclusive
